@@ -1,19 +1,22 @@
 import bigData from '../data/es.json'
 
+interface cityData {
+  city: string,
+  [key: string]: string
+}
 
+export function makeDataArray(): string[] {
+  const arr: string[] = [];
 
-export function makeDataArray() {
-    let i = ''
-    let arr = []
-    for(i of bigData){
-        if(i.city.split(' ').length == 1){
-            arr.push(i.city)
-        }
-        else{
-            arr.push(i.city.split(' ').join('_'))
-        }
+  for (const item of bigData as cityData[]) {
+    if (item.city.split(' ').length === 1) {
+      arr.push(item.city);
+    } else {
+      arr.push(item.city.split(' ').join('_'));
     }
-    return arr
+  }
+
+  return arr;
 }
 
 
