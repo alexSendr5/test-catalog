@@ -1,0 +1,1 @@
+export {makeDataArray, getImage} from './catalog-actions'
